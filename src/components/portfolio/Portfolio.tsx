@@ -316,8 +316,6 @@ export const Nav = (props: { username?: string; dark?: boolean }) => {
     },
   ];
 
-  console.log(props.dark);
-
   const isDark = props.dark ? "text-gray-800" : "text-gray-600";
 
   return (
