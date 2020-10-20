@@ -18,5 +18,6 @@ psd
 thumb
 sketch
 .vscode
-public/
+public
+.firebase
 # End of https://www.toptal.com/developers/gitignore/api/react
