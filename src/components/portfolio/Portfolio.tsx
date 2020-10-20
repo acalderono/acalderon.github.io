@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Children } from "react";
 import "./Portfolio.css";
 import { Spinner } from "./../UI/Spinner";
 import { GitHub } from "../../interfaces/GitHub";
@@ -25,22 +25,15 @@ function Portfolio() {
       ) : (
         <main className="font-sans bg-white">
           <div>
-            <Header
-              name={personal?.blog}
-              twitter={personal?.twitter_username}
-              github={personal?.html_url}
-              hostname={window.location.origin}
-            />
+            <Header name={personal?.login} hostname={window.location.origin} />
             <Me name={personal?.name} avatar={personal?.avatar_url} />
-            {/* <AboutMe />
-            <LastPosts></LastPosts>
-            <Projects></Projects> */}
-
-            <Footer
-              name={personal?.login}
-              twitter={personal?.twitter_username}
-              github={personal?.html_url}
-            />
+            {/* <AboutMe>
+              ¡Hola 🙋🏻‍♂️! Soy Ángel Calderón, una persona autodidacta con ganas de aprender
+              diferentes tecnólogias
+            </AboutMe> */}
+            {/* <LastPosts></LastPosts> */}
+            {/*<Projects></Projects> */}
+            <Footer name={personal?.login} />
           </div>
         </main>
       )}{" "}
@@ -48,12 +41,7 @@ function Portfolio() {
   );
 }
 
-export const Header = (props: {
-  name?: string;
-  twitter?: string;
-  github?: string;
-  hostname?: string;
-}) => {
+export const Header = (props: { name?: string; hostname?: string }) => {
   return (
     <header className="bg-white shadow border-t-4 border-green-600">
       <div className="container mx-auto px-6 py-4">
@@ -82,41 +70,7 @@ export const Header = (props: {
               </span>
             </a>
           </div>
-          <div className="flex items-center -mx-2 icons-social">
-            <a
-              className="flex items-center mx-2 text-gray-800 hover:text-green-600"
-              rel="envelope"
-              href={"mailto:angel@acalderon.dev"}
-            >
-              <i className="far fa-envelope"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-800 hover:text-green-600"
-              rel="linkedin"
-              href={"https://linkedin.com/in/" + props.twitter}
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-800 hover:text-green-600"
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://twitter.com/" + props.twitter}
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-800 hover:text-green-600"
-              rel="noopener noreferrer"
-              target="_blank"
-              href={props.github}
-            >
-              <i className="fab fa-github"></i>
-            </a>
-          </div>
+          <Nav username={props?.name} dark={true}></Nav>
         </div>
       </div>
     </header>
@@ -134,10 +88,9 @@ export const Me = (props: { name?: string; avatar?: string | undefined }) => {
           </span>{" "}
           👋🏻
         </h2>
-        {/* <p className='text-gray-600 mt-4'>
-      </p> */}
+        {/* <p className="text-gray-600 mt-4">lorem ipsum</p> */}
 
-        <div className="flex items-end justify-center mt-16">
+        <div className="flex items-end justify-center mt-6">
           <div className="w-64 h-64 relative mb-4">
             <div className="group w-full h-full rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
               <span className="hidden group-hover:table-cell text-white font-bold align-middle">
@@ -157,19 +110,12 @@ export const Me = (props: { name?: string; avatar?: string | undefined }) => {
   );
 };
 
-export const AboutMe = () => {
+export const AboutMe = (props: { children: string }) => {
   return (
     <section className="bg-gray-800 pattern py-20">
       <div className="max-w-5xl px-6 mx-auto text-center">
         <h2 className="text-2xl font-semibold text-white">Sobre mí</h2>
-
-        <p className="text-gray-400 mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper
-          nulla nunc quis molestie volutpat elementum at. Ultrices ipsum, enim
-          cursus lorem ac. Orci maecenas praesent arcu eget orci est orci
-          nullam. Leo purus est pellentesque massa at tortor, est. Aliquet
-          pulvinar a mattis sagittis. Suspendisse porta id elementum, massa.
-        </p>
+        <p className="text-gray-400 mt-4">{props.children}</p>
       </div>
     </section>
   );
@@ -179,7 +125,9 @@ export const LastPosts = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-5xl px-6 mx-auto text-center">
-        <h2 className="text-2xl font-semibold text-gray-800">Latest Posts</h2>
+        <h2 className="text-2xl font-semibold text-gray-800">
+          Últimas Publicaciones
+        </h2>
 
         <div className="flex flex-col items-center justify-center mt-6">
           <a
@@ -270,84 +218,36 @@ export const Projects = () => {
   return (
     <section className="bg-gray-800 pattern py-20">
       <div className="max-w-5xl px-6 mx-auto text-center">
-        <h2 className="text-2xl font-semibold text-white">Projects</h2>
+        <h2 className="text-2xl font-semibold text-white">Proyectos</h2>
 
         <div className="flex items-center justify-center mt-10">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="max-w-xs w-full">
-              <div className="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
-                <img
-                  className="object-cover h-8"
-                  src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                  alt=""
-                />
-              </div>
-
-              <a
-                href="#"
-                className="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-              >
-                <div className="py-2 px-3 text-center text-sm">
-                  <p className="text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-
-                  <span className="block text-gray-500 mt-2">
-                    tailwindcomponents.com
-                  </span>
+            {[1, 2, 3].map(() => {
+              return (
+                <div className="max-w-xs w-full">
+                  <div className="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
+                    <img
+                      className="object-cover h-8"
+                      src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
+                      alt=""
+                    />
+                  </div>
+                  <a
+                    href="#"
+                    className="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                  >
+                    <div className="py-2 px-3 text-center text-sm">
+                      <p className="text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      </p>
+                      <span className="block text-gray-500 mt-2">
+                        tailwindcomponents.com
+                      </span>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-
-            <div className="max-w-xs w-full">
-              <div className="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
-                <img
-                  className="object-cover h-8"
-                  src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                  alt=""
-                />
-              </div>
-
-              <a
-                href="#"
-                className="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-              >
-                <div className="py-2 px-3 text-center text-sm">
-                  <p className="text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-
-                  <span className="block text-gray-500 mt-2">
-                    tailwindcomponents.com
-                  </span>
-                </div>
-              </a>
-            </div>
-
-            <div className="max-w-xs w-full">
-              <div className="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
-                <img
-                  className="object-cover h-8"
-                  src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                  alt=""
-                />
-              </div>
-
-              <a
-                href="#"
-                className="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-              >
-                <div className="py-2 px-3 text-center text-sm">
-                  <p className="text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-
-                  <span className="block text-gray-500 mt-2">
-                    tailwindcomponents.com
-                  </span>
-                </div>
-              </a>
-            </div>
+              );
+            })}
           </div>
         </div>
 
@@ -356,8 +256,7 @@ export const Projects = () => {
             className="flex items-center text-white hover:underline hover:text-gray-200"
             href="#"
           >
-            <span>View More On Github</span>
-
+            <span>Ver más en GitHub</span>
             <svg
               className="h-5 w-5 ml-1"
               fill="none"
@@ -378,11 +277,7 @@ export const Projects = () => {
   );
 };
 
-export const Footer = (props: {
-  name?: string;
-  twitter?: string;
-  github?: string;
-}) => {
+export const Footer = (props: { name?: string }) => {
   return (
     <footer className="bg-white">
       <div className="container mx-auto px-6 py-4">
@@ -390,44 +285,56 @@ export const Footer = (props: {
           <div>
             <div className="text-gray-600">&copy; {props.name}</div>
           </div>
-
-          <div className="flex items-center -mx-2 icons-social">
-            <a
-              className="flex items-center mx-2 text-gray-600 hover:text-green-600"
-              rel="envelope"
-              href={"mailto:angel@acalderon.dev"}
-            >
-              <i className="far fa-envelope"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-600 hover:text-green-600"
-              href={"https://linkedin.com/in/" + props.twitter}
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-600 hover:text-green-600"
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://twitter.com/" + props.twitter}
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-
-            <a
-              className="flex items-center mx-2 text-gray-600 hover:text-green-600"
-              rel="noopener noreferrer"
-              target="_blank"
-              href={props.github}
-            >
-              <i className="fab fa-github"></i>
-            </a>
-          </div>
+          <Nav username={props.name} dark={false}></Nav>
         </div>
       </div>
     </footer>
+  );
+};
+
+export const Nav = (props: { username?: string; dark?: boolean }) => {
+  const social = [
+    {
+      name: `https://twitter.com/${props.username}`,
+      icon: "fab fa-twitter",
+      rel: "noopener noreferrer",
+    },
+    {
+      name: `https://github.com/${props.username}`,
+      icon: "fab fa-github",
+      rel: "noopener noreferrer",
+    },
+    {
+      name: `https://linkedin.com/in/${props.username}`,
+      icon: "fab fa-linkedin",
+      rel: "noopener noreferrer",
+    },
+    {
+      name: `mailto:angel@acalderon.dev"}`,
+      icon: "far fa-envelope",
+      rel: "",
+    },
+  ];
+
+  console.log(props.dark);
+
+  const isDark = props.dark ? "text-gray-800" : "text-gray-600";
+
+  return (
+    <div className="flex items-center -mx-2 icons-social">
+      {social?.map((rs, i) => {
+        return (
+          <a
+            key={i}
+            className={`flex items-center mx-2  hover:text-green-600 ${isDark}`}
+            rel={rs.rel}
+            href={rs.name}
+          >
+            <i className={rs.icon}></i>
+          </a>
+        );
+      })}
+    </div>
   );
 };
 
