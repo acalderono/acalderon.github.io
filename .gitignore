@@ -18,6 +18,5 @@ psd
 thumb
 sketch
 .vscode
-public
-dist
+public/
 # End of https://www.toptal.com/developers/gitignore/api/react
