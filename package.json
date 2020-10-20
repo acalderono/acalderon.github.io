@@ -10,6 +10,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:all": "webpack",
+    "deploy": "firebase deploy",
     "build:css": "postcss src/tailwind.css -o dist/tailwind.css"
   },
   "dependencies": {
