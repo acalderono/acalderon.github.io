@@ -29,6 +29,7 @@ function Portfolio() {
               name={personal?.blog}
               twitter={personal?.twitter_username}
               github={personal?.html_url}
+              hostname={window.location.origin}
             />
             <Me name={personal?.name} avatar={personal?.avatar_url} />
             {/* <AboutMe />
@@ -51,6 +52,7 @@ export const Header = (props: {
   name?: string;
   twitter?: string;
   github?: string;
+  hostname?: string;
 }) => {
   return (
     <header className="bg-white shadow border-t-4 border-green-600">
@@ -59,7 +61,7 @@ export const Header = (props: {
           <div>
             <a
               className="flex items-center text-gray-800 hover:text-green-600"
-              href={window.location.hostname}
+              href={props.hostname}
             >
               <svg
                 className="h-6 w-6 sm:h-6 sm:w-6"
@@ -81,6 +83,14 @@ export const Header = (props: {
             </a>
           </div>
           <div className="flex items-center -mx-2 icons-social">
+            <a
+              className="flex items-center mx-2 text-gray-800 hover:text-green-600"
+              rel="envelope"
+              href={"mailto:angel@acalderon.dev"}
+            >
+              <i className="far fa-envelope"></i>
+            </a>
+
             <a
               className="flex items-center mx-2 text-gray-800 hover:text-green-600"
               rel="linkedin"
@@ -382,6 +392,14 @@ export const Footer = (props: {
           </div>
 
           <div className="flex items-center -mx-2 icons-social">
+            <a
+              className="flex items-center mx-2 text-gray-600 hover:text-green-600"
+              rel="envelope"
+              href={"mailto:angel@acalderon.dev"}
+            >
+              <i className="far fa-envelope"></i>
+            </a>
+
             <a
               className="flex items-center mx-2 text-gray-600 hover:text-green-600"
               href={"https://linkedin.com/in/" + props.twitter}
