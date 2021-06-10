@@ -4,14 +4,10 @@ import {
   Container,
   H2,
   Wrapper,
-  ItemContainer,
-  Item,
-  H3,
-  SpanTime,
   SeeMore,
   Link,
 } from "./Styles";
-// import { SeeMore } from "./../../molecules/index";
+import { Post } from "./../../molecules/index";
 
 export const LastPosts = ({ url }) => {
   const [proyectos, setProyectos] = useState([]);
@@ -57,12 +53,12 @@ export const LastPosts = ({ url }) => {
         <Wrapper>
           {proyectos?.map((item, index) => {
             return (
-              <ItemContainer key={index} href={item.html_url} rel="noopener">
-                <Item>
-                  <H3>{item.name}</H3>
-                  <SpanTime>{item.created_at}</SpanTime>
-                </Item>
-              </ItemContainer>
+              <Post
+                key={index}
+                url={item.html_url}
+                name={item.name}
+                created={item.created_at}
+              ></Post>
             );
           })}
         </Wrapper>
