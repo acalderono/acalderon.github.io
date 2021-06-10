@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Portfolio.css";
 import { Spinner } from "./../UI/Spinner";
 import { Header, Me, AboutMe, LastPosts, Projects, Footer } from "../UI";
+import { Main } from "./Styles";
 
 function Portfolio() {
   const [isLoading, setLoading] = useState(true);
@@ -28,17 +29,15 @@ function Portfolio() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <main className="font-sans bg-white">
-          <div>
-            <Header name={personal?.login} hostname={window.location.origin} />
-            <Me name={personal?.name} avatar={personal?.avatar_url} />
-            <AboutMe></AboutMe>
-            <LastPosts url={personal?.repos_url}></LastPosts>
-            <Projects></Projects>
-            <Footer name={personal?.login} />
-          </div>
-        </main>
-      )}{" "}
+        <Main className="pattern">
+          <Header name={personal?.login} hostname={window.location.origin} />
+          <Me name={personal?.name} avatar={personal?.avatar_url} />
+          <AboutMe></AboutMe>
+          <LastPosts url={personal?.repos_url}></LastPosts>
+          <Projects></Projects>
+          <Footer name={personal?.login} />
+        </Main>
+      )}
     </>
   );
 }

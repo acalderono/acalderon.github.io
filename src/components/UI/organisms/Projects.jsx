@@ -1,9 +1,10 @@
+import React from "react";
+
 export const Projects = () => {
   const webProjects = {
     name: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     url: "https://acalderon.dev",
-    image:
-      "https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg",
+    image: "",
   };
 
   return (

@@ -1,4 +1,6 @@
-export const Nav = (username = "acalderono", dark = "true") => {
+import { Container, Link } from "./Styles";
+
+export const Nav = (username = "acalderono", isDark = true) => {
   const social = [
     {
       name: `https://twitter.com/${username}`,
@@ -22,23 +24,16 @@ export const Nav = (username = "acalderono", dark = "true") => {
     },
   ];
 
-  const isDark = dark ? "text-gray-800" : "text-gray-600";
-
   return (
-    <div className="flex items-center -mx-2 icons-social">
+    <Container className="icons-social">
       {social?.map((rs, i) => {
         return (
-          <a
-            key={i}
-            className={`flex items-center mx-2  hover:text-green-600 ${isDark}`}
-            rel={rs.rel}
-            href={rs.name}
-          >
+          <Link key={i} rel={rs.rel} href={rs.name}>
             <i className={rs.icon}></i>
-          </a>
+          </Link>
         );
       })}
-    </div>
+    </Container>
   );
 };
 

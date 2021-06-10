@@ -1,4 +1,4 @@
-import { Nav } from "./Nav";
+import { Nav } from "./Nav/index";
 
 export const Footer = ({ name = "Angel" }) => {
   return (
@@ -8,7 +8,7 @@ export const Footer = ({ name = "Angel" }) => {
           <div>
             <div className="text-gray-600">&copy; {name}</div>
           </div>
-          <Nav username={name} dark={false}></Nav>
+          <Nav username={name} isDark={false}></Nav>
         </div>
       </div>
     </footer>
