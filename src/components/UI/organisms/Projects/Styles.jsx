@@ -21,9 +21,9 @@ const theme = {
 };
 
 export const SectionContainer = styled.section`
-  background-color: ${theme.bgWhite};
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  background-color: ${theme.bgGray900};
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 `;
 
 export const Container = styled.div`
@@ -35,18 +35,22 @@ export const Container = styled.div`
   margin-right: auto;
 `;
 
-export const Posts = styled.div`
+export const H2 = styled.h2`
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: ${theme.textWhite};
+`;
+
+export const List = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 1.5rem;
 `;
 
-export const H2 = styled.h2`
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 600;
+export const Wrapper = styled.div`
+  display: grid;
 `;
 
 export const SeeMore = styled.div`
