@@ -3,7 +3,7 @@ import {
   SectionContainer,
   Container,
   H2,
-  Wrapper,
+  Posts,
   SeeMore,
   Link,
 } from "./Styles";
@@ -50,7 +50,7 @@ export const LastPosts = ({ url }) => {
       <Container>
         <H2>Últimas Publicaciones</H2>
 
-        <Wrapper>
+        <Posts>
           {proyectos?.map((item, index) => {
             return (
               <Post
@@ -61,7 +61,7 @@ export const LastPosts = ({ url }) => {
               ></Post>
             );
           })}
-        </Wrapper>
+        </Posts>
 
         <SeeMore>
           <Link href="https://github.com/acalderono" rel="noopener">
