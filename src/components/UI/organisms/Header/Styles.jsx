@@ -37,15 +37,6 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-// export const Span2 = styled.div`
-//   display: flex;
-//   align-items: center;
-//   color: rgba(31, 41, 55, ${theme.twBgOpacity});
-//   &:hover {
-//     color: ${theme.textGreen600};
-//   }
-// `;
-
 export const Span = styled.span`
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -59,4 +50,9 @@ export const Link = styled.a`
   &:hover {
     color: ${theme.textGreen600};
   }
+`;
+
+export const Svg = styled.svg`
+  height: 1.5rem;
+  width: 1.5rem;
 `;
