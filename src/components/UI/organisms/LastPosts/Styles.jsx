@@ -66,3 +66,9 @@ export const Link = styled.a`
     text-decoration: underline;
   }
 `;
+
+export const Svg = styled.svg`
+  height: 1rem;
+  width: 1rem;
+  margin-left: 1.5rem;
+`;
