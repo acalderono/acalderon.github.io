@@ -3,4 +3,4 @@ export { Me } from "./organisms/Me/Me";
 export { AboutMe } from "./organisms/AboutMe/AboutMe";
 export { LastPosts } from "./organisms/LastPosts/LastPosts";
 export { Projects } from "./organisms/Projects/Projects";
-export { Footer } from "./organisms/Footer";
+export { Footer } from "./organisms/Footer/Footer";
