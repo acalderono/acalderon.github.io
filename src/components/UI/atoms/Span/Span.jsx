@@ -6,6 +6,7 @@ export const SpanGreen = styled.span`
   border-radius: 0.25rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  margin-left: 0.25rem;
 `;
 
 export const Span = ({ children }) => {
