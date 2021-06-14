@@ -37,6 +37,6 @@ export const Link = styled.a`
 export const Icon = styled.div`
   height: 1rem;
   width: 1rem;
-  mask-image: url("${(props) => svgIcon[props.nameIcon]}");
+  background-image: url("${(props) => svgIcon[props.nameIcon]}");
   background-repeat: no-repeat;
 `;
