@@ -16,6 +16,7 @@ function Portfolio() {
       }),
     });
     let personal = await r.json().then();
+    console.log(personal);
     setPersonal(personal);
     setLoading(false);
   };
@@ -30,7 +31,7 @@ function Portfolio() {
         <Spinner />
       ) : (
         <Main className="pattern">
-          <Header name={personal?.login} hostname={window.location.origin} />
+          <Header name={personal.login} hostname={window.location.origin} />
           <Me name={personal?.name} avatar={personal?.avatar_url} />
           <AboutMe></AboutMe>
           <LastPosts url={personal?.repos_url}></LastPosts>
