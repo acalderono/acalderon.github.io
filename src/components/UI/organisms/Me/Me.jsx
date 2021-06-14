@@ -1,7 +1,7 @@
 import {
   SectionContainer,
   Wrapper,
-  H2,
+  Title,
   Container,
   ContainerDiv,
   SubDiv,
@@ -13,11 +13,10 @@ export const Me = ({ name = "Angel", avatar = "https://localhost:3000" }) => {
   return (
     <SectionContainer className="pattern">
       <Wrapper>
-        <H2>
+        <Title>
           Hola,
-          <Span>Soy {name}</Span>
-          👋🏻
-        </H2>
+          <Span>Soy Ángel</Span>👋🏻
+        </Title>
         {/* <p className="text-gray-600 mt-4">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. A aliquam
           veniam suscipit eaque iure, eligendi harum expedita cupiditate sequi,
@@ -28,15 +27,7 @@ export const Me = ({ name = "Angel", avatar = "https://localhost:3000" }) => {
         <Container>
           <ContainerDiv>
             <SubDiv>
-              {/* <span className="hidden group-hover:table-cell text-white font-bold align-middle">
-                KR
-              </span> */}
-              <Logo
-                src={avatar}
-                alt={name}
-                unselectable="on"
-                // className="object-cover object-center w-full h-full visible group-hover:hidden"
-              />
+              <Logo src={avatar} alt={name} unselectable="on" />
             </SubDiv>
           </ContainerDiv>
         </Container>
