@@ -53,4 +53,5 @@ export const Span = styled.span`
 
 export const Div = styled.div`
   color: ${theme.textGray400};
+  font-size: 0.9rem;
 `;
