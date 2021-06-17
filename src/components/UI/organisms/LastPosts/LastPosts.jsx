@@ -12,13 +12,14 @@ import { Post } from "./../../molecules/index";
 
 export const LastPosts = ({ url }) => {
   const [proyectos, setProyectos] = useState([]);
+  const { REACT_APP_TOKEN_GITHUB } = process.env;
 
   useEffect(() => {
     const fetchBusinesses = () => {
       return fetch(url, {
         method: "GET",
         headers: new Headers({
-          Authorization: "token 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",
+          Authorization: REACT_APP_TOKEN_GITHUB,
         }),
       })
         .then((res) => {
