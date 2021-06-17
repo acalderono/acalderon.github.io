@@ -18,7 +18,7 @@ export const Nav = ({ username = "acalderono", isDark = true }) => {
       rel: "noopener noreferrer",
     },
     {
-      href: `mailto:angel@acalderon.dev`,
+      href: `mailto:hola@acalderon.dev`,
       name: "envelope",
       rel: "",
     },
@@ -55,7 +55,7 @@ export const Nav2 = ({ username = "acalderono", isDark = true }) => {
       rel: "noopener noreferrer",
     },
     {
-      href: `mailto:angel@acalderon.dev`,
+      href: `mailto:hola@acalderon.dev`,
       icon: "far fa-envelope",
       rel: "",
     },
