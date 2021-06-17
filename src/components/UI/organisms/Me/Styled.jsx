@@ -64,6 +64,7 @@ export const SubDiv = styled.div`
   border-radius: 100%;
   overflow: hidden;
   text-align: center;
+  box-shadow: 0px 0px 20px 7px #d8d8d8;
 `;
 
 export const Logo = styled.img`

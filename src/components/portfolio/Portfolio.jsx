@@ -7,12 +7,13 @@ import { Main } from "./Styles";
 function Portfolio() {
   const [isLoading, setLoading] = useState(true);
   const [personal, setPersonal] = useState();
+  const { REACT_APP_TOKEN_GITHUB } = process.env;
 
   const getFetchPersonal = async () => {
     let r = await fetch("https://api.github.com/users/acalderono", {
       method: "GET",
       headers: new Headers({
-        Authorization: "token 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",
+        Authorization: REACT_APP_TOKEN_GITHUB,
       }),
     });
     let personal = await r.json().then();
@@ -33,9 +34,9 @@ function Portfolio() {
         <Main className="pattern">
           <Header name={personal.login} hostname={window.location.origin} />
           <Me name={personal?.name} avatar={personal?.avatar_url} />
-          <AboutMe></AboutMe>
+          {/* <AboutMe></AboutMe> */}
           <LastPosts url={personal?.repos_url}></LastPosts>
-          <Projects></Projects>
+          {/* <Projects></Projects> */}
           <Footer name={personal?.login} />
         </Main>
       )}
