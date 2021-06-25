@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Portfolio.css";
-import { Spinner } from "./../UI/Spinner";
+import { Spinner } from "./../UI/atoms/index";
 import { Header, Me, AboutMe, LastPosts, Projects, Footer } from "../UI";
 import { Main } from "./Styles";
 
@@ -17,7 +17,6 @@ function Portfolio() {
       }),
     });
     let personal = await r.json().then();
-    console.log(personal);
     setPersonal(personal);
     setLoading(false);
   };
