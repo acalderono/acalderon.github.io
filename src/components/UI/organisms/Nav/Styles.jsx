@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const theme = {
+const theme2 = {
   textGreen600: "rgba(16,185,129,1)",
   textGray800: "rgba(31,41,55,1)",
   textGray600: "rgba(113, 128, 150, 1)",
@@ -28,9 +28,9 @@ export const Link = styled.a`
   align-items: center;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  color: ${(props) => (props.isDark ? theme.textGray800 : theme.textGray600)};
+  color: ${(props) => (props.isDark ? theme2.textGray800 : theme2.textGray600)};
   &:hover {
-    color: ${theme.textGreen600};
+    color: ${theme2.textGreen600};
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import theme from "../../../styles/theme";
 
 export const spin = keyframes`
 0% {transform: rotate(0deg);}
@@ -12,7 +13,7 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
 `;
 export const Circle = styled.div`
-  border: 5px solid rgba(16, 185, 129, 1);
+  border: 5px solid ${theme.colors.brand2[900]};
   border-left-color: transparent;
   border-radius: 50%;
   width: 100px;
