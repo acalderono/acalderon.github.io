@@ -27,7 +27,7 @@ export const ItemContainer = styled.a`
   width: 100%;
   background-color: ${theme.bgWhite};
   border-top-width: 4px;
-  border-color: rgba(5, 150, 105, 1);
+  border-color: rgba(16, 185, 129, 1);
   border-radius: 0.375rem;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);

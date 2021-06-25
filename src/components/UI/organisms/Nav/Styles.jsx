@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const theme = {
-  textGreen600: "rgba(5, 150, 105, 1)",
+  textGreen600: "rgba(16,185,129,1)",
   textGray800: "rgba(31,41,55,1)",
   textGray600: "rgba(113, 128, 150, 1)",
 };

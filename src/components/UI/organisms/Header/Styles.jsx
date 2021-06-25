@@ -9,7 +9,7 @@ const theme = {
   twShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)",
   twBorderOpacity: "1",
   twBgOpacity: "1",
-  textGreen600: "rgba(5, 150, 105, 1)",
+  textGreen600: "rgba(16,185,129,1)",
   textGray800: "rgba(31,41,55,1)",
 };
 
